@@ -1,27 +1,37 @@
 let contador = 0;
 let alturaFeminina = [];
 let alturaMasculina = [];
-var quantMulheres = alturaFeminina.count;
-var quantHomens = alturaMasculina.count;
+var quantMulheres = 0;
+var quantHomens = 0;
 var somaAlturaHomens = 0;
+var menorAltura = Infinity;
+var maiorAltura = -Infinity;
 
 while (contador < 15){
-    var altura = prompt("Qual a altura?");
+    var altura = parseInt(prompt("Qual a altura em centímetros?"));
     var sexo = prompt("F ou M?");
-    if(sexo = "M"){
-        alturaMasculina.push(altura);
-        somaAlturaHomens += alturaMasculina;
-    }else if(sexo = "F"){
-        alturaFeminina.push(altura);
+    if(sexo == "M"){
+        somaAlturaHomens += altura;
+        quantHomens++
+    }else if(sexo == "F"){
+        alturaFeminina.push(altura)
+        quantMulheres ++;
+    }
+    if (altura > maiorAltura){
+       maiorAltura = altura;
+    }
+
+    if (altura < menorAltura){
+      menorAltura = altura;
     }
     contador++;
 }
 
-var menorAltura = Number(Math.min(altura))
-var maiorAltura = Number(Math.max(altura));
-var mediaAlturaHomens = somaAlturaHomens / quantHomens;
+var mediaAlturaHomens = somaAlturaHomens / (contador - quantMulheres);
+
+
 
 alert(`A maior altura é ${maiorAltura}`)
 alert(`A menor altura é ${menorAltura}`)
-alert(`A média de altura dos homens é ${mediaAlturaHomens}`)
+alert(`A média de altura dos homens é ${mediaAlturaHomens.toFixed(2)}cm`)
 alert(`O número de mulheres é ${quantMulheres}`)
