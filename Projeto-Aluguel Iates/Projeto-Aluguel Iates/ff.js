@@ -9,6 +9,8 @@ function Cadastrar(){
     obj.mensagem = mensagem;
 
     console.log(obj);
+
+    inserirMensagem(obj);
 }
 
 function validarUsuario(){
@@ -36,35 +38,28 @@ function verificarCredenciais(objadmin) {
     }
 }
 
-function obterMensagens(){
+function obterArray(){
     
-    var nome = document.getElementById("idNome").value;
-    var email = document.getElementById("idEmail").value;
-    var mensagem = document.getElementById("idText").value;
-
-    var objtabela = {};
-    objtabela.nome = nome;
-    objtabela.email = email;
-    objtabela.mensagem = mensagem;
-
-    console.log(objtabela);
-
-    var linha = document.createElement("tr");
-
-    var tdNome = document.createElement("td");
-    tdNome.innerHTML = nome;
-    linha.appendChild(tdNome);
-
-    var tdEmail = document.createElement("td");
-    tdEmail.innerHTML = email;
-    linha.appendChild(tdEmail);
-
-    var tdMensagem = document.createElement("td");
-    tdMensagem.innerHTML = mensagem;
-    linha.appendChild(tdMensagem);
-
     var tabela = document.getElementById("tabela");
-    tabela.appendChild(linha);
+    var  mensagens = obterMensagens();
+
+    for(var i = 0; i < mensagens.length; i++){
+        var linha = document.createElement("tr");
+
+        var tdNome = document.createElement("td");
+        tdNome.innerHTML = mensagens[i].nome;
+        linha.appendChild(tdNome);
+
+        var tdEmail = document.createElement("td");
+        tdEmail.innerHTML = mensagens[i].email;
+        linha.appendChild(tdEmail);
+
+        var tdMensagem = document.createElement("td");
+        tdMensagem.innerHTML = mensagens[i].mensagem;
+        linha.appendChild(tdMensagem);
+
+        tabela.appendChild(linha);
+    }
 }
 
 

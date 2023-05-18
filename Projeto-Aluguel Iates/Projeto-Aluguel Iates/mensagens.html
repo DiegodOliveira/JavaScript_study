@@ -5,17 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="ff.js"></script>
 </head>
-<body>
+<body onload="obterArray()">
     
     <h2>Lista de mensagens cadastradas</h2>
     <table border="1" id="tabela">
         <th>Nome</th>
+        <th>Email</th>
         <th>Mensagens</th>
     </table>
-    <button onclick="obterMensagens()">Obter</button>
-
     
+
+    <script src="jquery-3.6.4.min.js"></script>
+		<script src="funcoes.js"></script>
+		<script src="ff.js"></script>
 </body>
 </html>
